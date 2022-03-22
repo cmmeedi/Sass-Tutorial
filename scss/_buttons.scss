@@ -1,0 +1,29 @@
+// This is an extension.  Extensions are similar to variables
+// but have multiple properties within them.  
+
+%btn{
+    display: inline-block;
+    border-radius: 5px;
+    padding: 8px 20px;
+    margin: 3px;
+    
+
+    &:hover{
+        transform: scale(.98);
+    }
+}
+
+// By creating a %btn extension i can call on that extension
+// within the btns that are on my html document and the properties
+// will be applied to those buttons
+
+
+.btn-primary{
+    @extend %btn;
+    @include set-background(lighten($primary-color, 10%));
+}
+
+.btn-secondary{
+    @extend %btn;
+    @include set-background($secondary-color)
+}

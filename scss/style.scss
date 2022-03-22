@@ -1,0 +1,80 @@
+/* The 'config' file needs to be imported
+and does not require the underscore since sass
+already knows it is a partial file
+*/
+
+@import 'config';
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: $light-color;
+    font-family: $font-stack;
+    line-height: 1.6;
+}
+
+img{
+    width: 100%;
+}
+
+a{
+    text-decoration: none;
+}
+
+.showcase{
+    @include set-background($primary-color);
+    height: 600px;
+
+
+    nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        ul{
+            display: flex;
+            list-style-type: none;
+        }
+
+        li{
+            padding: 15px;
+        }
+
+        a{
+            color: set-text-color($primary-color);
+        }
+        
+        a:hover{
+            color: $secondary-color;
+        }
+    }
+
+    //The "&" represents the Parent Name.  
+    //in this case & = "showcase" so the class
+    //that is being selected here is showcase-content
+    &-content{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    img{
+        width: 50%;
+    }
+
+    h1{
+        font-size: 50px;
+        line-height: 1.2;
+    }
+}
+
+@import 'buttons';
+@import 'mobile';
+@import 'utilities';

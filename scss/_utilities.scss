@@ -1,0 +1,68 @@
+.container{
+    max-width: 1100px;
+    padding: 0 30px;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+/*This is a loop that iterates over each element($space) within the "$spaceAmounts" array.  for each element it sets the # in 
+'.m-#', 
+'.my-#', 
+'.p-#', and 
+'.py-#' to 
+
+'.m-$space', 
+'.my-$space', 
+'.p-$space', and 
+'.py-$space' 
+
+$space represents each element within the $spaceAmounts array
+
+meaning
+
+starting from 1 each iteration the number will increment causing the html class to change each iteration
+
+.m-1
+.my-1
+.p-1
+.py-1
+
+the next iteration will be
+
+.m-2
+.my-2
+.p-2
+.py-2
+
+so on and so forth
+
+for each of these iterations it sets the CSS margin property to whatever the current $space variable is at
+
+.m-1{
+    margin: 1rem;
+}
+.m-2{
+    margin: 2rem;
+}
+
+get it?
+
+it does the same thing for the padding on the .p and .py classes
+
+*/
+$spaceAmounts: (1, 2, 3, 4, 5);
+
+@each $space in $spaceAmounts{
+    .m-#{$space}{
+         margin: #{$space}rem;
+    }
+    .my-#{$space}{
+        margin: #{$space}rem 0;
+    }
+    .p-#{$space}{
+        padding: #{$space}rem;
+    }
+    .py-#{$space}{
+        padding: #{$space}rem 0;
+    }
+}

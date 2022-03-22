@@ -1,0 +1,41 @@
+/*This is a partial file and variables will be
+  Amended to the "style.css" file.  Sass is able
+  to do this because the file is marked as a partial 
+  with the "_".
+  */
+
+$font-stack: Arial, Helvetica, sans-serif;
+$primary-color: #0e6cff;
+// $primary-color: #e0ffff;
+$secondary-color: #ff8700;
+$light-color: #f4f4f4;
+$mTop: 20px;
+$mBottom: 100px;
+
+
+//set text color based on background
+//This is a function.  This should really be handled in JS
+//but they can also be created in Sass and the syntax is just like any other OOP language
+@function set-text-color($color){
+    @if(lightness($color) > 70){
+        @return #333;
+    }
+    @else{
+        @return #fff;
+    }
+}
+
+//Set background and text color
+@mixin set-background($color){
+    background-color: $color;
+    color: set-text-color($color)
+}
+
+//This is stupid
+    $spaceAmounts: (1, 2, 3, 4, 5);
+
+    @each $space in $spaceAmounts{
+        .my-#{$space}{
+             
+        }
+    }
